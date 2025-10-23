@@ -1,0 +1,5 @@
+{
+  "garminMcp.email": "your-email@example.com",
+  "garminMcp.password": "your-password-here",
+  "garminMcp.serverPath": "garmin-mcp"
+}
