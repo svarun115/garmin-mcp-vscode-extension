@@ -1,0 +1,83 @@
+{
+  "name": "garmin-mcp-vscode-extension",
+  "displayName": "Garmin MCP Extension",
+  "description": "VS Code extension for Garmin MCP server - access your Garmin Connect fitness and health data",
+  "version": "1.0.0",
+  "publisher": "svarun115",
+  "author": {
+    "name": "Varun Sashidharan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svarun115/garmin-mcp-vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "keywords": [
+    "garmin",
+    "mcp",
+    "model context protocol",
+    "fitness",
+    "health",
+    "garmin connect"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "garmin-mcp-provider",
+        "label": "Garmin MCP Server"
+      }
+    ],
+    "configuration": {
+      "title": "Garmin MCP",
+      "properties": {
+        "garminMcp.email": {
+          "type": "string",
+          "default": "",
+          "description": "Garmin Connect email address",
+          "order": 1
+        },
+        "garminMcp.password": {
+          "type": "string",
+          "default": "",
+          "description": "Garmin Connect password",
+          "order": 2
+        },
+        "garminMcp.serverPath": {
+          "type": "string",
+          "default": "garmin-mcp",
+          "description": "Path to garmin-mcp executable (default: uses PATH)",
+          "order": 3
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.104.0",
+    "@types/node": "^20.x",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.17.0",
+    "typescript": "^5.7.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  },
+  "dependencies": {}
+}
